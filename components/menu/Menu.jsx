@@ -20,9 +20,11 @@ const Menu = (props) => {
 
   const handleChangeSection = (section) => {
     const target = document.querySelector("#" + section);
-    target.scrollIntoView({
-      block: "center",
-    });
+    if (target) {
+      target.scrollIntoView({
+        block: "center",
+      });
+    }
     setTimeout(function () {
       const menuButtons = document.querySelectorAll(".menuButton p");
       const menuHiddenButton = document.querySelector(".menuHiddenButton");

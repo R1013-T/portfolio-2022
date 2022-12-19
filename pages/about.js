@@ -16,6 +16,9 @@ const about = () => {
   return (
     <div className={styles.wrapper}>
       <Head>
+        <title>RYUNOSUKE PORTFOLIO - ABOUT</title>
+        <meta name="description" content="2023 Ryunosuke Takahashi Portfolio" />
+
         <link rel="stylesheet" href="https://use.typekit.net/wgn3fgb.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

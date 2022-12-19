@@ -10,6 +10,7 @@ import { gsap } from "gsap/dist/gsap";
 
 const Section = (props) => {
   const menuRef = useRef();
+  const titleWrapRef = useRef();
   const titleRef = useRef();
   const topImageRef = useRef();
 
@@ -91,6 +92,10 @@ const Section = (props) => {
       y: "100%",
       duration: 0.5,
     });
+    gsap.to(titleWrapRef.current, {
+      autoAlpha: 0,
+      duration: 0.5,
+    });
     gsap.to(menuRef.current, {
       autoAlpha: 1,
       duration: 0,
@@ -146,6 +151,11 @@ const Section = (props) => {
       duration: 0.5,
       delay: 0.9,
     });
+    gsap.to(titleWrapRef.current, {
+      autoAlpha: 1,
+      duration: 0.5,
+      delay: 0.9,
+    });
 
     setTimeout(function () {
       setupMenuGsap();
@@ -161,7 +171,7 @@ const Section = (props) => {
       <Back />
       <Front />
       <div className={styles.container}>
-        <div className={styles.title}>
+        <div className={styles.title} ref={titleWrapRef}>
           <div className={styles.titleWrapper} ref={titleRef}></div>
         </div>
         <div className={`${styles.imageWrapper}`} ref={topImageRef}>

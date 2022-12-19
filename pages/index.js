@@ -32,7 +32,6 @@ export default function Home() {
 
   useEffect(() => {
     if (gsapState) return
-    console.log(gsapState)
     gsap.registerPlugin(ScrollTrigger);
 
     setupTopGsap();
@@ -485,6 +484,9 @@ export default function Home() {
   return (
     <article className={styles.wrapper}>
       <Head>
+        <title>RYUNOSUKE PORTFOLIO</title>
+        <meta name="description" content="2023 Ryunosuke Takahashi Portfolio" />
+
         <link rel="stylesheet" href="https://use.typekit.net/wgn3fgb.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
