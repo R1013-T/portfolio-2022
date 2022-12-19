@@ -23,6 +23,7 @@ export default function Home() {
   const topFutRef = useRef(null);
   const menuRef = useRef(null);
 
+  const [gsapState, setGsapState] = useState(false);
   const [menuState, setMenuState] = useState(false);
   const [pageRatio, setPageRatio] = useState("");
   const [currentSection, setCurrentSection] = useState("top");
@@ -30,11 +31,15 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
+    if (gsapState) return
+    console.log(gsapState)
     gsap.registerPlugin(ScrollTrigger);
 
     setupTopGsap();
     setupSectionGsap();
     setupGsap();
+
+    setGsapState(true)
   }, []);
 
   const setupTopGsap = () => {
