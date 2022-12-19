@@ -1,5 +1,5 @@
 import styles from "../styles/About.module.scss";
-import Section from "../components/section/section";
+import Section from "../components/section/Section";
 
 import Head from "next/head";
 import { useEffect } from "react";
