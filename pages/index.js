@@ -48,7 +48,7 @@ export default function Home() {
         autoAlpha: 0,
         duration: 1,
       },
-      "start+=1"
+      "start+=1.5"
     );
     backUps.forEach((el) => {
       gsap.set(el, {
@@ -125,7 +125,7 @@ export default function Home() {
       setTimeout(function () {
         setupTopUnderTextGsap();
       }, 1500);
-    }, 2200);
+    }, 3000);
   };
 
   const setupTopUnderTextGsap = () => {
@@ -272,13 +272,19 @@ export default function Home() {
       gsap.set(el.querySelector(".sectionTextSpan p"), {
         x: "-100%",
       });
+      gsap.set(el.querySelector(".sectionUpperBar"), {
+        x: "-100%",
+      });
+      gsap.set(el.querySelector(".sectionUnderBar"), {
+        x: "-100%",
+      });
 
       gsap.to(el.querySelector(".sectionText p"), {
         x: 0,
         scrollTrigger: {
           trigger: el,
           start: "top bottom-=40%",
-          end: "center center+=10%",
+          end: "center center+=15%",
           duration: 0.3,
           scrub: true,
         },
@@ -288,6 +294,26 @@ export default function Home() {
         scrollTrigger: {
           trigger: el,
           start: "top bottom-=30%",
+          end: "center center+=10%",
+          duration: 0.5,
+          scrub: true,
+        },
+      });
+      gsap.to(el.querySelector(".sectionUpperBar"), {
+        x: 0,
+        scrollTrigger: {
+          trigger: el,
+          start: "top bottom-=60%",
+          end: "center center+=5%",
+          duration: 0.5,
+          scrub: true,
+        },
+      });
+      gsap.to(el.querySelector(".sectionUnderBar"), {
+        x: 0,
+        scrollTrigger: {
+          trigger: el,
+          start: "top bottom-=65%",
           end: "center center",
           duration: 0.5,
           scrub: true,
@@ -523,6 +549,14 @@ export default function Home() {
                   and Creation.
                 </p>
               </span>
+              <div className={styles.sectionBarWrapper}>
+                <div className={styles.upperWrap}>
+                  <div className={`${styles.bar} sectionUpperBar`}></div>
+                </div>
+                <div className={styles.underWrap}>
+                  <div className={`${styles.bar} sectionUnderBar`}></div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -553,6 +587,14 @@ export default function Home() {
                   <br />I can also use design tools.
                 </p>
               </span>
+              <div className={styles.sectionBarWrapper}>
+                <div className={styles.upperWrap}>
+                  <div className={`${styles.bar} sectionUpperBar`}></div>
+                </div>
+                <div className={styles.underWrap}>
+                  <div className={`${styles.bar} sectionUnderBar`}></div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -583,6 +625,14 @@ export default function Home() {
                   <br />I would love to hear your feedback !
                 </p>
               </span>
+              <div className={styles.sectionBarWrapper}>
+                <div className={styles.upperWrap}>
+                  <div className={`${styles.bar} sectionUpperBar`}></div>
+                </div>
+                <div className={styles.underWrap}>
+                  <div className={`${styles.bar} sectionUnderBar`}></div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
