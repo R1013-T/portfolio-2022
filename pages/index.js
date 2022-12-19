@@ -48,7 +48,7 @@ export default function Home() {
         autoAlpha: 0,
         duration: 1,
       },
-      "start+=1.5"
+      "start+=3"
     );
     backUps.forEach((el) => {
       gsap.set(el, {
@@ -82,17 +82,20 @@ export default function Home() {
       y: "100%",
     });
     setTimeout(function () {
+      scrollTo(0, 0);
+    }, 3500);
+    setTimeout(function () {
       backUps.forEach((el) => {
         gsap.to(el, {
           y: 0,
-          duration: 1,
+          duration: 1.3,
           ease: "power4.out",
         });
       });
       backDowns.forEach((el) => {
         gsap.to(el, {
           y: 0,
-          duration: 1,
+          duration: 1.3,
           ease: "power4.out",
         });
       });
@@ -125,7 +128,7 @@ export default function Home() {
       setTimeout(function () {
         setupTopUnderTextGsap();
       }, 1500);
-    }, 3000);
+    }, 4000);
   };
 
   const setupTopUnderTextGsap = () => {

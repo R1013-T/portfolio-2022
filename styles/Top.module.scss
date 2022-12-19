@@ -143,19 +143,18 @@ section {
           height: 60px;
           width: 130px;
           margin: 25px 0 0 5px;
+          overflow: hidden;
 
           .upperWrap {
             width: 80px;
             height: 30px;
             margin: 0 auto 0 0;
-            overflow: hidden;
           }
 
           .underWrap {
             width: 80px;
             height: 30px;
             margin: 0 0 0 auto;
-            overflow: hidden;
           }
           .bar {
             border-top: 2.5px solid $subLv1Chara;

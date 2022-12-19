@@ -6,7 +6,43 @@
   left: 0;
   background: #111;
   z-index: 100;
-  display: grid;
-  place-items: center;
-  color: #eee;
+  color: #c0c0c0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow: hidden;
+
+  .topText {
+    margin-top: -200px;
+    letter-spacing: 2px;
+    font-family: azo-sans-web, sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 13px;
+  }
+
+  .image {
+    width: min(10vw, 100px) !important;
+    margin: 0 auto;
+    animation: rotate 1.7s ease-in-out infinite;
+  }
+
+  .underBar {
+    position: absolute;
+    width: 100vw;
+    height: 5px;
+    background: #c0c0c0;
+    left: 0;
+    bottom: 0;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
