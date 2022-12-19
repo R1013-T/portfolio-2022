@@ -1,0 +1,18 @@
+.backWrapper {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: #111;
+  z-index: -10;
+  display: flex;
+  overflow: hidden;
+
+  .backBar {
+    width: 12.5vw;
+    height: 100vh;
+    border: 1px solid rgba($color: #fff, $alpha: 0.05);
+    background: #181818;
+  }
+}

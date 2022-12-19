@@ -1,0 +1,12 @@
+.loadingWrapper {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: #111;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  color: #eee;
+}

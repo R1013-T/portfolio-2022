@@ -1,0 +1,82 @@
+$mainBack: #23282f;
+$subBack: #141920;
+$mainChara: #e6e6e6;
+$subLv1Chara: #c0c0c0;
+$subLv2Chara: #898989;
+$mainStroke: #777;
+$subStroke: #555;
+$blue: #719ddc;
+$red: #ff9796;
+
+.menu {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 50;
+  .menuBack {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: fixed;
+    z-index: 51;
+
+    .menuBackBarWrapper {
+      width: 12.5vw;
+      height: 100%;
+      overflow: hidden;
+
+      .menuBackBar {
+        width: 100%;
+        height: 100%;
+        border: 1px solid rgba($color: #fff, $alpha: 0.05);
+        background: #181818;
+      }
+    }
+  }
+
+  .menuHiddenButton {
+    position: fixed;
+    z-index: 52;
+    width: 25px;
+    height: 25px;
+    top: 20px;
+    right: 20px;
+    color: $subLv2Chara;
+    cursor: pointer;
+  }
+
+  .menuInner {
+    width: 100%;
+    height: 100%;
+    color: $mainChara;
+    position: fixed;
+    z-index: 52;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    top: 25vh;
+    height: 50vh;
+
+    .buttonWrapper {
+      width: calc(50vw + 1px);
+      overflow: hidden;
+      p {
+        display: flex;
+        justify-content: space-between;
+        font-size: 30px;
+        opacity: 0.5;
+        transition: all 0.5s;
+
+        span {
+          text-align: center;
+          width: 20px;
+        }
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+$mainBack: #23282f;
+$subBack: #141920;
+$mainChara: #e6e6e6;
+$subLv1Chara: #c0c0c0;
+$subLv2Chara: #898989;
+$mainStroke: #777;
+$subStroke: #555;
+$blue: #719ddc;
+$red: #ff9796;
+
+.header {
+  position: fixed;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  color: $subLv2Chara;
+  z-index: 40;
+  .left {
+    padding: 16px 16px;
+    font-family: azo-sans-web, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 1px;
+    font-size: 11px;
+    span {
+      font-weight: 300;
+    }
+  }
+  .right {
+    padding: 12px 27px;
+    font-size: 17px;
+    cursor: pointer;
+  }
+}
