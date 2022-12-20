@@ -71,7 +71,7 @@ export default function Home() {
       y: "100%",
     });
     gsap.set(topSpanRef.current, {
-      y: "100%",
+      y: "110%",
     });
     gsap.set(topFirstRef.current, {
       y: "100%",
