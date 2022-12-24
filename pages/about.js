@@ -14,7 +14,7 @@ import { VscArrowLeft } from "react-icons/vsc";
 import { useRouter } from "next/router";
 
 const about = () => {
-  const router = useRouter()
+  const router = useRouter();
 
   const chartRef = useRef(null);
   const timelineRef = useRef(null);
@@ -250,6 +250,11 @@ const about = () => {
         setChartData([]);
         break;
       case 3:
+        gsap.to(document.querySelector(".title"), {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+        });
         setChartLabels(["ExcelVBA", "Swift"]);
         setChartData([50, 50]);
         setOverChartLabels(["Photoshop"]);
@@ -336,7 +341,7 @@ const about = () => {
       <main>
         <div className={styles.chartWrap} ref={chartRef}>
           <div className={styles.chartInner}>
-            <div className={styles.title}>My Skill Set</div>
+            <div className={`${styles.title} title`}>My Skill Set</div>
             <div>
               <Pie
                 className={styles.pie}
