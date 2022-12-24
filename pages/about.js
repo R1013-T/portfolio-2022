@@ -2,7 +2,7 @@ import styles from "../styles/About.module.scss";
 import Section from "../components/section/Section";
 
 import Head from "next/head";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
