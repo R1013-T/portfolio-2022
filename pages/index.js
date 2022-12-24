@@ -4,6 +4,7 @@ import Header from "../components/header/Header";
 import Loading from "../components/loading/Loading";
 import Menu from "../components/menu/Menu";
 import Nav from "../components/nav/Nav";
+import Front from "../components/front/Front";
 
 import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
@@ -27,18 +28,19 @@ export default function Home() {
   const [menuState, setMenuState] = useState(false);
   const [pageRatio, setPageRatio] = useState("");
   const [currentSection, setCurrentSection] = useState("top");
+  const [frontState, setFrontState] = useState(false);
 
   const router = useRouter();
 
   useEffect(() => {
-    if (gsapState) return
+    if (gsapState) return;
     gsap.registerPlugin(ScrollTrigger);
 
     setupTopGsap();
     setupSectionGsap();
     setupGsap();
 
-    setGsapState(true)
+    setGsapState(true);
   }, []);
 
   const setupTopGsap = () => {
@@ -479,6 +481,10 @@ export default function Home() {
 
   const handleSection = (section) => {
     console.log(section);
+    setFrontState(true);
+    setTimeout(() => {
+      router.push(`/${section}`);
+    }, 850);
   };
 
   return (
@@ -501,6 +507,7 @@ export default function Home() {
       <div ref={menuRef}>
         <Menu changeMenuState={changeMenuState} />
       </div>
+      {frontState ? <Front state="top" /> : ""}
       <Header changeMenuState={changeMenuState} />
       <Back />
       <Nav

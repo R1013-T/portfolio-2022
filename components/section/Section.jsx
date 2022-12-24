@@ -169,7 +169,7 @@ const Section = (props) => {
       </div>
       <Header changeMenuState={changeMenuState} />
       <Back />
-      <Front />
+      <Front state={"section"} />
       <div className={styles.container}>
         <div className={styles.title} ref={titleWrapRef}>
           <div className={styles.titleWrapper} ref={titleRef}></div>

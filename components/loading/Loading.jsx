@@ -46,6 +46,7 @@ const Loading = () => {
     gsap.to(barRef.current, {
       x: 0,
       duration: 2.9,
+      ease: "power4.inOut",
     });
 
     gsap.to(textRef.current, {
