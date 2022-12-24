@@ -1,22 +1,28 @@
 import styles from "../styles/About.module.scss";
 import Section from "../components/section/Section";
-
 import Head from "next/head";
-import { useEffect, useRef, useState } from "react";
 
-import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { gsap } from "gsap/dist/gsap";
+import { useEffect, useRef, useState } from "react";
 
 import { Chart as ChartJS, ArcElement, Tooltip } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 
+import { VscArrowLeft } from "react-icons/vsc";
+import { useRouter } from "next/router";
+
 const about = () => {
+  const router = useRouter()
+
   const chartRef = useRef(null);
   const timelineRef = useRef(null);
   const borderRef = useRef(null);
 
   let currentTime = 0;
+  let labelCount = 0;
+  let chartSize = 500;
 
   const [overChartLabels, setOverChartLabels] = useState([]);
   const [overChartData, setOverChartData] = useState([]);
@@ -105,9 +111,9 @@ const about = () => {
     responsive: false,
     plugins: {
       datalabels: {
-        align: "end",
+        align: "center",
         anchor: "center",
-        color: "#eee",
+        color: "#e6e6e6",
         font: {
           size: 10,
         },
@@ -136,14 +142,17 @@ const about = () => {
       borderRef.current,
       {
         height: 0,
+        opacity: 0,
       },
       {
         height: "50vh",
+        opacity: 1,
         scrollTrigger: {
           trigger: top.current,
           start: "bottom top+=60%",
           end: "bottom top+=10%",
           scrub: 0.5,
+          onRefresh: () => changePageSize(),
         },
       }
     );
@@ -296,10 +305,20 @@ const about = () => {
     }
   }, [currentState]);
 
+  const changePageSize = () => {
+    if (typeof document !== "undefined") {
+      // chartSize = window.innerWidth;
+    }
+  };
+
+  const handleBack = () => {
+    router.push("/");
+  };
+
   return (
-    <div className={styles.wrapper}>
+    <article className={styles.container}>
       <Head>
-        <title>RYUNOSUKE PORTFOLIO - ABOUT</title>
+        <title>RYUNOSUKE PORTFOLIO - CONTACT</title>
         <meta name="description" content="2023 Ryunosuke Takahashi Portfolio" />
 
         <link rel="stylesheet" href="https://use.typekit.net/wgn3fgb.css" />
@@ -311,23 +330,27 @@ const about = () => {
         />
       </Head>
       <Section name={"about"} />
+      <div className={styles.backButton} onClick={handleBack}>
+        <VscArrowLeft />
+      </div>
       <main>
         <div className={styles.chartWrap} ref={chartRef}>
           <div className={styles.chartInner}>
+            <div className={styles.title}>My Skill Set</div>
             <div>
               <Pie
                 className={styles.pie}
                 data={data01}
                 options={options}
-                width={300}
-                height={300}
+                width={380}
+                height={380}
               />
               <Pie
                 className={styles.pie}
                 data={data02}
                 options={options}
-                width={300}
-                height={300}
+                width={150}
+                height={150}
               />
             </div>
           </div>
@@ -337,7 +360,7 @@ const about = () => {
         </div>
         <div className={styles.timelineWrap} ref={timelineRef}>
           <div className={styles.inner}>
-            <div className={styles.space}></div>
+            <div className={styles.topSpace}></div>
             <div id="01" className={`${styles.box} box`}>
               <div className={styles.boxInner}>
                 <div className={`${styles.left} left`}></div>
@@ -469,7 +492,7 @@ const about = () => {
           </div>
         </div>
       </main>
-    </div>
+    </article>
   );
 };
 

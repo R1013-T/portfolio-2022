@@ -170,14 +170,13 @@ const Section = (props) => {
       <Header changeMenuState={changeMenuState} />
       <Back />
       <Front state={"section"} />
-      <div className={styles.container}>
+      <div className={`${styles.container} main`}>
         <div className={styles.title} ref={titleWrapRef}>
           <div className={styles.titleWrapper} ref={titleRef}></div>
         </div>
         <div className={`${styles.imageWrapper}`} ref={topImageRef}>
           <img src={`/images/${props.name}.jpg`} className={`image`} />
         </div>
-        <div className={styles.space}></div>
       </div>
     </div>
   );

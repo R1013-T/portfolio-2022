@@ -1,60 +1,157 @@
 .wrapper {
-  width: 100%;
-  height: 100%;
+  position: relative;
+  background: #e6e6e6;
+  width: 50vw;
+  height: 100vh;
+}
+
+.backButton {
+  position: fixed;
+  top: 40px;
+  left: 13px;
+  z-index: 40;
+  font-size: 60px;
+  color: #e0e0e0;
+  opacity: .5;
+  transition: all .3s;
+  cursor: pointer;
+
+  &:hover{
+    opacity: .8;
+  }
 }
 
 .container {
-  position: relative;
+  background: #181818;
   width: 100vw;
-  height: 100vh;
-  overflow: scroll;
-  -ms-overflow-style: none;
-  overflow-x: hidden;
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  main {
+    position: relative;
 
-  &::-webkit-scrollbar {
-    width: 0;
-  }
-
-  .title {
-    position: absolute;
-    z-index: 60;
-    width: 50vw;
-    font-size: 20px;
-    color: #fff;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    overflow: hidden;
-
-    .titleWrapper {
-      width: 50vw;
-      display: flex;
-      justify-content: space-between;
-
-      span {
-        width: 20px;
-        text-align: center;
-      }
-    }
-  }
-
-  .imageWrapper {
-    width: 100vw;
-    overflow: hidden;
-
-    img {
+    .chartWrap {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100vw;
       height: 100vh;
-      filter: brightness(70%);
-    }
-  }
 
-  .space {
-    width: 100vw;
-    height: 200vh;
+      .chartInner {
+        position: relative;
+        display: grid;
+        place-items: center;
+        height: 100vh;
+        width: 55vw;
+        overflow: hidden;
+
+        .title {
+          margin: 30px 0 -100px;
+          color: #e0e0e0;
+          font-family: azo-sans-web, sans-serif;
+        }
+        .pie {
+          color: #e6e6e6;
+          margin: 0 auto;
+          &:nth-child(1) {
+            margin-top: 17vh;
+            margin-bottom: -45px;
+          }
+          &:nth-child(2) {
+            margin-left: 30vw;
+          }
+        }
+      }
+    }
+
+    .timelineWrap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+
+      .inner {
+        position: absolute;
+        top: 0;
+        left: 55vw;
+        width: 45vw;
+
+        .space {
+          width: 100%;
+          height: 55vh;
+        }
+        .topSpace {
+          width: 100%;
+          height: 50vh;
+        }
+
+        .box {
+          height: 30vh;
+          border-bottom: 1px solid rgba($color: #e0e0e0, $alpha: 0.4);
+
+          .boxInner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            .text {
+              display: flex;
+              align-items: flex-end;
+              position: absolute;
+              left: 5.5vw;
+              bottom: 0px;
+              width: calc(40vw - 10px);
+              height: 50px;
+              margin: 8px 10px;
+              overflow: hidden;
+              font-size: 11px;
+              color: rgba($color: #e6e6e6, $alpha: 0.4);
+              font-family: azo-sans-web, sans-serif;
+
+              .textInner {
+                color: #e6e6e6;
+              }
+            }
+            .point {
+              position: absolute;
+              width: 10px;
+              height: 10px;
+              background: #e6e6e6;
+              bottom: -5.5px;
+              right: calc(40vw - 5.5px);
+            }
+
+            .right {
+              position: absolute;
+              left: 5vw;
+              bottom: 0;
+              height: 100%;
+              border-bottom: 1px solid #e0e0e0;
+            }
+            .left {
+              position: absolute;
+              right: 40vw;
+              bottom: 0;
+              height: 100%;
+              border-bottom: 1px solid #e0e0e0;
+            }
+          }
+        }
+      }
+    }
+
+    .border {
+      position: absolute;
+      border-left: 3px solid #e0e0e0;
+      width: 40vw;
+      top: 0;
+      right: 0;
+      z-index: 10;
+      .point {
+        width: 8px;
+        height: 8px;
+        background: #e6e6e6;
+        position: absolute;
+        bottom: 0;
+        transform: translateX(-6px);
+      }
+    }
   }
 }
