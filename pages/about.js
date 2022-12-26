@@ -163,7 +163,7 @@ const about = () => {
         box.querySelector(".left"),
         { width: 0 },
         {
-          width: "5vw",
+          width: "calc(12.5vw * 1)",
           duration: 0.6,
           ease: "power3.out",
           scrollTrigger: {
@@ -178,7 +178,7 @@ const about = () => {
         box.querySelector(".right"),
         { width: 0 },
         {
-          width: "40vw",
+          width: "calc(12.5vw * 2)",
           duration: 0.6,
           ease: "power3.out",
           scrollTrigger: {
@@ -256,7 +256,7 @@ const about = () => {
           duration: 0.5,
         });
         setChartLabels(["ExcelVBA", "Swift"]);
-        setChartData([50, 50]);
+        setChartData([45, 55]);
         setOverChartLabels(["Photoshop"]);
         setOverChartData([100]);
         break;
@@ -264,7 +264,7 @@ const about = () => {
         setChartLabels(["ExcelVBA", "Swift"]);
         setChartData([50, 50]);
         setOverChartLabels(["Premiere Pro", "Photoshop"]);
-        setOverChartData([15, 85]);
+        setOverChartData([25, 75]);
         break;
       case 5:
         setChartLabels(["ExcelVBA", "Swift"]);
