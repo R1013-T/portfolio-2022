@@ -38,7 +38,6 @@ export default function Home() {
   useEffect(() => {
     if (gsapState) return;
     gsap.registerPlugin(ScrollTrigger);
-    console.log(router.query.section);
 
     if (router.query.section) {
       setFrontBackState(true);
@@ -99,7 +98,6 @@ export default function Home() {
 
     setTimeout(() => {
       const target = document.querySelector("#" + section);
-      console.log(target);
       target.scrollIntoView({
         block: "center",
       });

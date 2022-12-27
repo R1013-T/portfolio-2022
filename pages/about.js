@@ -345,7 +345,7 @@ const about = () => {
         />
       </Head>
       <Section name={"about"} />
-      {/* {isFront ? <Front state="top" /> : ""} */}
+      {isFront ? <Front state="top" /> : ""}
       <div className={styles.backButton} onClick={handleBack}>
         <VscArrowLeft />
       </div>
