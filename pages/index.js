@@ -419,7 +419,6 @@ export default function Home() {
         start: "center bottom-=250%",
         end: "center bottom-=300%",
         scrub: 0.5,
-        markers: true,
       },
     });
   };
