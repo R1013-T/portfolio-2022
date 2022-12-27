@@ -5,6 +5,13 @@
   height: 100vh;
 }
 
+.scrollbar {
+  position: fixed;
+  width: 12.5vw;
+  height: 120px;
+  bottom: 10px;
+  left: 0;
+}
 
 .backButton {
   position: fixed;

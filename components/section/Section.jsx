@@ -7,6 +7,7 @@ import Menu from "../menu/Menu";
 import { useEffect, useRef, useState } from "react";
 
 import { gsap } from "gsap/dist/gsap";
+import Scroll from "../scroll/Scroll";
 
 const Section = (props) => {
   const menuRef = useRef();
@@ -48,6 +49,7 @@ const Section = (props) => {
         duration: 0.6,
       }
     );
+    console.log(document.querySelector(".section .main"));
   };
 
   const changeMenuState = (state) => {
@@ -163,7 +165,7 @@ const Section = (props) => {
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div className={`${styles.wrapper} section`}>
       <div ref={menuRef}>
         <Menu changeMenuState={changeMenuState} />
       </div>

@@ -412,6 +412,7 @@ export default function Home() {
 
     gsap.to(scrollBarRef.current, {
       y: "150%",
+      opacity: 0,
       scrollTrigger: {
         trigger: document.querySelector("contact"),
         start: "center bottom-=250%",

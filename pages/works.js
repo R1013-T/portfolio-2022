@@ -1,16 +1,21 @@
 import styles from "../styles/Works.module.scss";
 import Front from "../components/front/Front";
 import Section from "../components/section/Section";
+import Scroll from "../components/scroll/Scroll";
 
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
 
 import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
 import { VscArrowLeft } from "react-icons/vsc";
 
 const works = () => {
   const router = useRouter()
+
+  const scrollBarRef = useRef(null)
 
   const [isFront, setIsFront] = useState(false)
 
@@ -18,7 +23,20 @@ const works = () => {
     setupGsap();
   }, []);
 
-  const setupGsap = () => {};
+  const setupGsap = () => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.to(scrollBarRef.current, {
+      y: "130%",
+      opacity: 0,
+      scrollTrigger: {
+        trigger: document.querySelector("main"),
+        start: "top bottom",
+        end: "top top",
+        scrub: 0.5,
+      },
+    });
+  };
 
   const handleBack = () => {
     const query = {
@@ -46,10 +64,15 @@ const works = () => {
       </Head>
       <Section name={"works"} />
       {isFront ? <Front state="top" /> : ""}
-
       <div className={styles.backButton} onClick={handleBack}>
         <VscArrowLeft />
       </div>
+      <div className={styles.scrollbar} ref={scrollBarRef}>
+        <Scroll />
+      </div>
+      <main>
+
+      </main>
     </div>
   );
 };

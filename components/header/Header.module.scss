@@ -15,8 +15,8 @@ $red: #ff9796;
   justify-content: space-between;
   color: $subLv2Chara;
   z-index: 40;
-  .left {
-    padding: 16px 16px;
+  .right {
+    padding: 16px 20px;
     font-family: azo-sans-web, sans-serif;
     font-weight: 500;
     font-style: normal;
@@ -26,8 +26,8 @@ $red: #ff9796;
       font-weight: 300;
     }
   }
-  .right {
-    padding: 12px 27px;
+  .left {
+    padding: 12px 16px;
     font-size: 17px;
     cursor: pointer;
   }

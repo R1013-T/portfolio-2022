@@ -1,29 +1,28 @@
-import styles from "./Header.module.scss"
+import styles from "./Header.module.scss";
 
 import { VscMenu } from "react-icons/vsc";
 import { useRouter } from "next/router";
 
 const Header = (props) => {
-
-  const router = useRouter()
+  const router = useRouter();
 
   const handleTop = () => {
-    router.push('/')
-  }
+    router.push("/");
+  };
 
   const handleMenu = () => {
-    props.changeMenuState(true)
-  }
+    props.changeMenuState(true);
+  };
 
   return (
     <div className={styles.header}>
-      <div className={styles.left}>
+      <div className={styles.left} onClick={handleMenu}>
+        <VscMenu />
+      </div>
+      <div className={styles.right}>
         <p onClick={handleTop}>
           Ryunosuke<span>Takahashi</span>
         </p>
-      </div>
-      <div className={styles.right} onClick={handleMenu}>
-        <VscMenu />
       </div>
     </div>
   );

@@ -6,14 +6,15 @@ import Front from "../components/front/Front";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 import { Chart as ChartJS, ArcElement, Tooltip } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 
 import { VscArrowLeft } from "react-icons/vsc";
+import Scroll from "../components/scroll/Scroll";
 
 const about = () => {
   const router = useRouter();
@@ -21,6 +22,7 @@ const about = () => {
   const chartRef = useRef(null);
   const timelineRef = useRef(null);
   const borderRef = useRef(null);
+  const scrollBarRef = useRef(null);
 
   const [isFront, setIsFront] = useState(false);
 
@@ -222,6 +224,17 @@ const about = () => {
         }
       );
     });
+
+    gsap.to(scrollBarRef.current, {
+      y: "130%",
+      opacity: 0,
+      scrollTrigger: {
+        trigger: document.querySelector("main"),
+        start: "top bottom",
+        end: "top top",
+        scrub: 0.5,
+      },
+    });
   };
 
   const handleEnter = () => {
@@ -348,6 +361,9 @@ const about = () => {
       {isFront ? <Front state="top" /> : ""}
       <div className={styles.backButton} onClick={handleBack}>
         <VscArrowLeft />
+      </div>
+      <div className={styles.scrollbar} ref={scrollBarRef}>
+        <Scroll />
       </div>
       <main>
         <div className={styles.chartWrap} ref={chartRef}>
