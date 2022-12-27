@@ -24,6 +24,7 @@ export default function Home() {
   const topStuRef = useRef(null);
   const topFutRef = useRef(null);
   const menuRef = useRef(null);
+  const scrollBarRef = useRef(null);
 
   const [gsapState, setGsapState] = useState(false);
   const [menuState, setMenuState] = useState(false);
@@ -410,6 +411,17 @@ export default function Home() {
         },
       });
     });
+
+    gsap.to(scrollBarRef.current, {
+      y: "150%",
+      scrollTrigger: {
+        trigger: document.querySelector("contact"),
+        start: "center bottom-=250%",
+        end: "center bottom-=300%",
+        scrub: 0.5,
+        markers: true,
+      },
+    });
   };
 
   const changeSection = (directions, section) => {
@@ -576,7 +588,7 @@ export default function Home() {
         handleChangeSection={handleChangeSection}
         currentSection={currentSection}
       />
-      <div className={styles.scrollbar}>
+      <div className={styles.scrollbar} ref={scrollBarRef}>
         <Scroll />
       </div>
       <section id="top" className={styles.top}>
