@@ -344,8 +344,8 @@ const about = () => {
           rel="stylesheet"
         />
       </Head>
-      {isFront ? <Front state="top" /> : ""}
       <Section name={"about"} />
+      {/* {isFront ? <Front state="top" /> : ""} */}
       <div className={styles.backButton} onClick={handleBack}>
         <VscArrowLeft />
       </div>
