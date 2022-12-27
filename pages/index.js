@@ -12,6 +12,7 @@ import { useRouter } from "next/router";
 
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import Scroll from "../components/scroll/Scroll";
 
 export default function Home() {
   const loadingRef = useRef(null);
@@ -575,6 +576,9 @@ export default function Home() {
         handleChangeSection={handleChangeSection}
         currentSection={currentSection}
       />
+      <div className={styles.scrollbar}>
+        <Scroll />
+      </div>
       <section id="top" className={styles.top}>
         <div className={styles.front}></div>
         <img
