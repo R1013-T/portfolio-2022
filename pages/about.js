@@ -1,18 +1,19 @@
 import styles from "../styles/About.module.scss";
 import Section from "../components/section/Section";
 import Head from "next/head";
+import Front from "../components/front/Front";
+
+import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/router";
 
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { gsap } from "gsap/dist/gsap";
-import { useEffect, useRef, useState } from "react";
 
 import { Chart as ChartJS, ArcElement, Tooltip } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 
 import { VscArrowLeft } from "react-icons/vsc";
-import { useRouter } from "next/router";
-import Front from "../components/front/Front";
 
 const about = () => {
   const router = useRouter();

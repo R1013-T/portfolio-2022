@@ -1,17 +1,34 @@
 import styles from "../styles/Contact.module.scss";
 import Section from "../components/section/Section";
+import Front from "../components/front/Front";
 
 import Head from "next/head";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/router";
 
 import { gsap } from "gsap/dist/gsap";
+import { VscArrowLeft } from "react-icons/vsc";
 
 const contact = () => {
+  const router = useRouter();
+
+  const [isFront, setIsFront] = useState(false);
+
   useEffect(() => {
     setupGsap();
   }, []);
 
   const setupGsap = () => {};
+
+  const handleBack = () => {
+    const query = {
+      section: "contact",
+    };
+    setIsFront(true);
+    setTimeout(() => {
+      router.push({ pathname: "/", query: query }, "/");
+    }, 1000);
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -28,6 +45,10 @@ const contact = () => {
         />
       </Head>
       <Section name={"contact"} />
+      {isFront ? <Front state="top" /> : ""}
+      <div className={styles.backButton} onClick={handleBack}>
+        <VscArrowLeft />
+      </div>
     </div>
   );
 };

@@ -1,17 +1,34 @@
 import styles from "../styles/Works.module.scss";
+import Front from "../components/front/Front";
 import Section from "../components/section/Section";
 
 import Head from "next/head";
-import { useEffect, useRef } from "react";
+import { useRouter } from "next/router";
+import { useEffect, useRef, useState } from "react";
 
 import { gsap } from "gsap/dist/gsap";
+import { VscArrowLeft } from "react-icons/vsc";
 
 const works = () => {
+  const router = useRouter()
+
+  const [isFront, setIsFront] = useState(false)
+
   useEffect(() => {
     setupGsap();
   }, []);
 
   const setupGsap = () => {};
+
+  const handleBack = () => {
+    const query = {
+      section: "works",
+    };
+    setIsFront(true);
+    setTimeout(() => {
+      router.push({ pathname: "/", query: query }, "/");
+    }, 1000);
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -28,6 +45,11 @@ const works = () => {
         />
       </Head>
       <Section name={"works"} />
+      {isFront ? <Front state="top" /> : ""}
+
+      <div className={styles.backButton} onClick={handleBack}>
+        <VscArrowLeft />
+      </div>
     </div>
   );
 };
