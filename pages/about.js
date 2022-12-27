@@ -305,7 +305,7 @@ const about = () => {
         ]);
         setChartData([1, 1, 16, 16, 34, 26, 3, 3]);
         setOverChartLabels(["Premiere Pro", "Photoshop", "Illustrator"]);
-        setOverChartData([5, 40, 55]);
+        setOverChartData([5, 30, 65]);
         break;
     }
   }, [currentState]);
