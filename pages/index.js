@@ -29,19 +29,80 @@ export default function Home() {
   const [pageRatio, setPageRatio] = useState("");
   const [currentSection, setCurrentSection] = useState("top");
   const [frontState, setFrontState] = useState(false);
+  const [frontBackState, setFrontBackState] = useState(true);
 
   const router = useRouter();
 
   useEffect(() => {
     if (gsapState) return;
     gsap.registerPlugin(ScrollTrigger);
+    console.log(router.query.section);
 
-    setupTopGsap();
+    if (router.query.section) {
+      setFrontBackState(true);
+      setupSectionBackGsap(router.query.section);
+      setTimeout(() => {
+        setFrontBackState(false);
+      }, 1500);
+    } else {
+      setFrontBackState(false);
+      setupTopGsap();
+    }
+
     setupSectionGsap();
     setupGsap();
 
     setGsapState(true);
   }, []);
+
+  const setupSectionBackGsap = (section) => {
+    const backUps = document.querySelectorAll(".backUp");
+    const backDowns = document.querySelectorAll(".backDown");
+
+    gsap.set(loadingRef.current, {
+      autoAlpha: 0,
+    });
+    backUps.forEach((el) => {
+      gsap.set(el, {
+        y: 0,
+      });
+    });
+    backDowns.forEach((el) => {
+      gsap.set(el, {
+        y: 0,
+      });
+    });
+    gsap.set(topImageRef.current, {
+      opacity: 1,
+    });
+    gsap.set(topUpperRef.current, {
+      y: 0,
+    });
+    gsap.set(topSpanRef.current, {
+      y: 0,
+    });
+    gsap.set(topFirstRef.current, {
+      y: 0,
+    });
+    gsap.set(topLastRef.current, {
+      y: "100%",
+    });
+    gsap.set(topStuRef.current, {
+      y: "100%",
+    });
+    gsap.set(topFutRef.current, {
+      y: "100%",
+    });
+    setupTopUnderTextGsap();
+
+    setTimeout(() => {
+      const target = document.querySelector("#" + section);
+      console.log(target);
+      target.scrollIntoView({
+        block: "center",
+      });
+    }, 1);
+  };
 
   const setupTopGsap = () => {
     const backUps = document.querySelectorAll(".backUp");
@@ -480,7 +541,6 @@ export default function Home() {
   };
 
   const handleSection = (section) => {
-    console.log(section);
     setFrontState(true);
     setTimeout(() => {
       router.push(`/${section}`);
@@ -508,6 +568,7 @@ export default function Home() {
         <Menu changeMenuState={changeMenuState} />
       </div>
       {frontState ? <Front state="top" /> : ""}
+      {frontBackState ? <Front state="" /> : ""}
       <Header changeMenuState={changeMenuState} />
       <Back />
       <Nav
@@ -518,7 +579,7 @@ export default function Home() {
         <div className={styles.front}></div>
         <img
           className={styles.topImage}
-          src="/images/topImage.svg"
+          src="./images/topImage.svg"
           ref={topImageRef}
         />
         <div className={styles.topText}>

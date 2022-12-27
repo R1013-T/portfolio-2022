@@ -12,6 +12,7 @@ import ChartDataLabels from "chartjs-plugin-datalabels";
 
 import { VscArrowLeft } from "react-icons/vsc";
 import { useRouter } from "next/router";
+import Front from "../components/front/Front";
 
 const about = () => {
   const router = useRouter();
@@ -19,6 +20,8 @@ const about = () => {
   const chartRef = useRef(null);
   const timelineRef = useRef(null);
   const borderRef = useRef(null);
+
+  const [isFront, setIsFront] = useState(false);
 
   let currentTime = 0;
   let labelCount = 0;
@@ -317,7 +320,13 @@ const about = () => {
   };
 
   const handleBack = () => {
-    router.push("/");
+    const query = {
+      section: "about",
+    };
+    setIsFront(true);
+    setTimeout(() => {
+      router.push({ pathname: "/", query: query }, "/");
+    }, 1000);
   };
 
   return (
@@ -334,6 +343,7 @@ const about = () => {
           rel="stylesheet"
         />
       </Head>
+      {isFront ? <Front state="top" /> : ""}
       <Section name={"about"} />
       <div className={styles.backButton} onClick={handleBack}>
         <VscArrowLeft />

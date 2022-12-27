@@ -39,6 +39,20 @@ const Front = (props) => {
         duration: 0,
         delay: 2,
       });
+    } else {
+      frontBackBars.forEach((el) => {
+        gsap.fromTo(
+          el,
+          {
+            x: 0,
+          },
+          {
+            x: "-100%",
+            duration: 0.8,
+            delay: 0.7,
+          }
+        );
+      });
     }
   };
 
