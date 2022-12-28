@@ -92,10 +92,10 @@ const works = () => {
           slidesPerView={1}
           loop={true}
           speed={1000}
-          autoplay={{
-            delay: 4000,
-            disableOnInteraction: false,
-          }}
+          // autoplay={{
+          //   delay: 4000,
+          //   disableOnInteraction: false,
+          // }}
           navigation={{
             prevEl: "#button_prev",
             nextEl: "#button_next",
@@ -106,19 +106,19 @@ const works = () => {
           modules={[Autoplay, Pagination, Navigation]}
           className={styles.slider}
         >
-          <SwiperSlide>
+          <SwiperSlide className={styles.slideInner}>
             <Three />
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className={styles.slideInner}>
             <Hitokan />
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className={styles.slideInner}>
             <Lp />
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className={styles.slideInner}>
             <Three />
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide className={styles.slideInner}>
             <Three />
           </SwiperSlide>
         </Swiper>

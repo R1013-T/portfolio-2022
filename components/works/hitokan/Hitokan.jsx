@@ -6,11 +6,6 @@ const Hitokan = () => {
       <div className={styles.back}>
         <img src="./images/works/hitokanIcon.png" alt="" />
       </div>
-      {/* <div className={styles.imageWrapper}>
-        <div className={styles.inner}>
-          <img src="./images/works/hitokan.png" alt="" />
-        </div>
-      </div> */}
       <div className={styles.textWrapper}>
         <div className={styles.inner}>
           <div className={styles.title}>
