@@ -1,5 +1,4 @@
 import styles from "./Lp.module.scss"
-import Link from "next/link";
 
 const Lp = () => {
   return (

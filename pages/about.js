@@ -480,8 +480,6 @@ const about = () => {
                 <div className={styles.text}>
                   <div className={`${styles.textInner} text`}>
                     学園祭にWebアプリケーションを出展する。
-                    <br />
-                    参加者アンケートでは３位！
                   </div>
                 </div>
                 <div className={`${styles.point} point`}></div>

@@ -20,6 +20,7 @@ import "swiper/css/bundle";
 
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import { VscArrowLeft } from "react-icons/vsc";
+import Typing from "../components/works/typing/Typing";
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
@@ -116,7 +117,7 @@ const works = () => {
             <Lp />
           </SwiperSlide>
           <SwiperSlide className={styles.slideInner}>
-            <Three />
+            <Typing />
           </SwiperSlide>
           <SwiperSlide className={styles.slideInner}>
             <Three />
