@@ -21,6 +21,7 @@ import "swiper/css/bundle";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import { VscArrowLeft } from "react-icons/vsc";
 import Typing from "../components/works/typing/Typing";
+import MyStudy from "../components/works/myStudy/MyStudy";
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
@@ -93,10 +94,10 @@ const works = () => {
           slidesPerView={1}
           loop={true}
           speed={1000}
-          // autoplay={{
-          //   delay: 4000,
-          //   disableOnInteraction: false,
-          // }}
+          autoplay={{
+            delay: 4000,
+            disableOnInteraction: false,
+          }}
           navigation={{
             prevEl: "#button_prev",
             nextEl: "#button_next",
@@ -120,7 +121,7 @@ const works = () => {
             <Typing />
           </SwiperSlide>
           <SwiperSlide className={styles.slideInner}>
-            <Three />
+            <MyStudy />
           </SwiperSlide>
         </Swiper>
         <div
