@@ -61,6 +61,19 @@ const works = () => {
     }, 1000);
   };
 
+  const handleSlideClick = (slide) => {
+    switch (slide) {
+      case "three" :
+        router.push('https://three-bice.vercel.app/')
+        break
+      case "hitokan" :
+        router.push('https://hitokan.vercel.app/')
+        break
+      case "lp" :
+        break
+    }
+  };
+
   return (
     <div className={styles.wrapper}>
       <Head>
@@ -108,19 +121,34 @@ const works = () => {
           modules={[Autoplay, Pagination, Navigation]}
           className={styles.slider}
         >
-          <SwiperSlide className={styles.slideInner}>
+          <SwiperSlide
+            className={styles.slideInner}
+            onClick={() => handleSlideClick("three")}
+          >
             <Three />
           </SwiperSlide>
-          <SwiperSlide className={styles.slideInner}>
+          <SwiperSlide
+            className={styles.slideInner}
+            onClick={() => handleSlideClick("hitokan")}
+          >
             <Hitokan />
           </SwiperSlide>
-          <SwiperSlide className={styles.slideInner}>
+          <SwiperSlide
+            className={styles.slideInner}
+            onClick={() => handleSlideClick("lp")}
+          >
             <Lp />
           </SwiperSlide>
-          <SwiperSlide className={styles.slideInner}>
+          <SwiperSlide
+            className={styles.slideInner}
+            // onClick={() => handleSlideClick()}
+          >
             <Typing />
           </SwiperSlide>
-          <SwiperSlide className={styles.slideInner}>
+          <SwiperSlide
+            className={styles.slideInner}
+            // onClick={() => handleSlideClick()}
+          >
             <MyStudy />
           </SwiperSlide>
         </Swiper>
