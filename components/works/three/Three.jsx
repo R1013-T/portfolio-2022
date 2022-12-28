@@ -1,5 +1,4 @@
 import styles from "./Three.module.scss";
-import Common from "../common";
 import Link from "next/link";
 
 const Three = () => {

@@ -1,5 +1,4 @@
 import styles from "./Hitokan.module.scss";
-import Common from "../common";
 
 const Hitokan = () => {
   return (
