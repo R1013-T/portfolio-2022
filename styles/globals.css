@@ -33,3 +33,11 @@ html {
   background: #898989;
   opacity: 0.5;
 }
+
+.swiper-pagination-bullet {
+  height: 3px !important;
+  width: 20px !important;
+  border-radius: 0 !important;
+  background: #898989 !important;
+  transition: all 0.2s !important;
+}

@@ -1,0 +1,25 @@
+.wrapper {
+  position: relative;
+  width: 80vw;
+  height: 70vh;
+  background: #e6e6e6;
+}
+
+.container {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  top: 50%;
+  right: 0%;
+  transform: translate(0, -50%);
+
+  .inner {
+    width: 100%;
+    height: 100%;
+    right: 0;
+    bottom: 50%;
+    transform: translate(0, 55%);
+    position: absolute;
+    overflow: hidden;
+  }
+}

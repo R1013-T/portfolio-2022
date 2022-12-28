@@ -1,0 +1,107 @@
+.wrapper {
+  position: relative;
+  width: 70vw;
+  height: 60vh;
+  background: #ffcd7c;
+  color: #333;
+  opacity: 0.9;
+}
+
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+
+  img {
+    width: 20%;
+  }
+}
+
+.imageWrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  .inner {
+    width: 70%;
+    height: 100%;
+    right: -10%;
+    bottom: -30%;
+    position: absolute;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.textWrapper {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  .inner {
+    width: 80%;
+    height: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      .jp {
+        font-family: "Noto Sans JP", sans-serif;
+        color: #83868a;
+        font-weight: 300;
+        font-size: 12px;
+        margin-bottom: -5px;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+      }
+      .en {
+        font-family: azo-sans-web, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 35px;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+    }
+    .descWrap {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      text-align: right;
+      .desc {
+        font-family: "Noto Sans JP", sans-serif;
+        letter-spacing: 1px;
+        font-size: 13px;
+        margin-top: 0;
+        line-height: 1.4;
+      }
+      .use {
+        font-family: "Roboto", sans-serif;
+        color: #83868a;
+        margin-top: 10px;
+        margin-right: 7px;
+        font-size: 10px;
+        letter-spacing: 1px;
+      }
+    }
+  }
+}
