@@ -40,7 +40,7 @@ $red: #ff9796;
     width: 100vw;
     height: 100vh;
     position: relative;
-    
+
     .slider {
       width: 70vw;
       height: 60vh;
@@ -59,10 +59,12 @@ $red: #ff9796;
       opacity: 0.7;
       transition: all 0.3;
       &.button_prev {
-        left: 0;
+        padding: 10px;
+        right: calc(12.5vw * 7);
       }
       &.button_next {
-        right: 0;
+        padding: 10px;
+        left: calc(12.5vw * 7);
       }
 
       &:hover {
