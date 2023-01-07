@@ -49,7 +49,6 @@ const Section = (props) => {
         duration: 0.6,
       }
     );
-    console.log(document.querySelector(".section .main"));
   };
 
   const changeMenuState = (state) => {

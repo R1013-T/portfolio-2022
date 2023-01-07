@@ -2,10 +2,13 @@ import styles from "../styles/Works.module.scss";
 import Front from "../components/front/Front";
 import Section from "../components/section/Section";
 import Scroll from "../components/scroll/Scroll";
+import List from "../components/works/lp/List"
 
 import Three from "../components/works/three/Three";
 import Hitokan from "../components/works/hitokan/Hitokan";
 import Lp from "../components/works/lp/Lp";
+import Typing from "../components/works/typing/Typing";
+import MyStudy from "../components/works/myStudy/MyStudy";
 
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -20,8 +23,6 @@ import "swiper/css/bundle";
 
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import { VscArrowLeft } from "react-icons/vsc";
-import Typing from "../components/works/typing/Typing";
-import MyStudy from "../components/works/myStudy/MyStudy";
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
@@ -30,6 +31,7 @@ const works = () => {
 
   const scrollBarRef = useRef(null);
 
+  const [isLpList, setIsLpList] = useState(false)
   const [isFront, setIsFront] = useState(false);
 
   useEffect(() => {
@@ -51,6 +53,10 @@ const works = () => {
     });
   };
 
+  const changeIsLpList = (state) => {
+    setIsLpList(state)
+  }
+
   const handleBack = () => {
     const query = {
       section: "works",
@@ -70,6 +76,7 @@ const works = () => {
         router.push('https://hitokan.vercel.app/')
         break
       case "lp" :
+        setIsLpList(true)
         break
     }
   };
@@ -95,6 +102,7 @@ const works = () => {
         />
       </Head>
       <Section name={"works"} />
+      {isLpList ? <List changeIsLpList={changeIsLpList} /> : ""}
       {isFront ? <Front state="top" /> : ""}
       <div className={styles.backButton} onClick={handleBack}>
         <VscArrowLeft />

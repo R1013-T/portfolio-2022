@@ -14,7 +14,6 @@ const Front = (props) => {
   const setupGsap = () => {
     const frontBackBars = document.querySelectorAll(".frontBackBar");
     if (props.state === "top") {
-      console.log("s");
       frontBackBars.forEach((el) => {
         gsap.fromTo(
           el,
@@ -41,7 +40,6 @@ const Front = (props) => {
         delay: 2,
       });
     } else {
-      console.log("a");
       frontBackBars.forEach((el) => {
         gsap.fromTo(
           el,
