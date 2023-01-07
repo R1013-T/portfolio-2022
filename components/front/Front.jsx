@@ -31,7 +31,7 @@ const Front = (props) => {
         gsap.to(el, {
           x: "-100%",
           duration: 0.8,
-          delay: 1.2,
+          delay: .3,
         });
       });
       gsap.to(frontRef.current, {

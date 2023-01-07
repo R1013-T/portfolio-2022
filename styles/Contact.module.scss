@@ -16,3 +16,123 @@
     opacity: 0.8;
   }
 }
+
+.wrapper {
+  position: relative;
+}
+
+.container {
+  position: absolute;
+  top: 20vh;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 61vw;
+  height: calc(90vh - 100px);
+  color: #222;
+  font-family: azo-sans-web, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  letter-spacing: 2px;
+  font-size: 15px;
+
+  .head {
+    font-weight: 500;
+    letter-spacing: 5px;
+    font-size: 42px;
+    color: #fff;
+    opacity: 0.8;
+  }
+  
+  p {
+    color: #fff;
+    opacity: 0.6;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+
+  .moreInfoWrap {
+    overflow: hidden;
+
+    input {
+      background: rgba($color: #fff, $alpha: 0.4);
+      border-bottom: #fff 1px solid;
+      width: 29.5vw;
+      margin-right: 1vw;
+      margin-bottom: 10px;
+      padding: 5px 7px;
+      outline: none;
+      transition: all 0.3s;
+
+      &:hover {
+        background: rgba($color: #fff, $alpha: 0.7);
+      }
+
+      &::placeholder {
+        color: rgba($color: #fff, $alpha: 0.7);
+        font-style: italic;
+      }
+    }
+
+    .firstName {
+    }
+    .lastName {
+    }
+
+    .company {
+      width: 60vw;
+      margin: 0 0 15px;
+    }
+
+    .email {
+    }
+    .phone {
+    }
+  }
+
+  .textarea {
+    outline: none;
+    background: rgba($color: #fff, $alpha: 0.4);
+    border-bottom: #fff 1px solid;
+    width: 60vw;
+    padding: 5px 7px;
+    height: 20vh;
+    resize: none;
+    margin-top: 10px;
+    transition: all 0.3s;
+    
+    &:hover {
+      background: rgba($color: #fff, $alpha: 0.7);
+    }
+    
+    &::placeholder {
+      color: rgba($color: #fff, $alpha: 0.7);
+      font-style: italic;
+    }
+  }
+  
+  .buttons {
+    margin-top: 10px;
+    width: 60vw;
+    display: flex;
+    justify-content: space-between;
+    color: #e6e6e6;
+    .moreInfo {
+      margin-top: 2px;
+      font-size: 13px;
+    }
+    
+    .send {
+      margin-top: 2px;
+      padding: 7px 26px;
+      background: rgba($color: #000, $alpha: 0.6);
+      font-size: 14px;
+      transition: all 0.7s;
+
+      &:hover {
+        background: rgba($color: #fff, $alpha: 0.6);
+        color: #222;
+      }
+    }
+  }
+}

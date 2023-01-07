@@ -29,8 +29,7 @@ const Section = (props) => {
           "<span>W</span><span>O</span><span>R</span><span>K</span><span>S</span>";
         break;
       case "contact":
-        spans =
-          "<span>C</span><span>O</span><span>N</span><span>T</span><span>A</span><span>C</span><span>T</span>";
+        spans = "";
         break;
     }
     titleRef.current.innerHTML = spans;

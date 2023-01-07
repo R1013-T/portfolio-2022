@@ -131,22 +131,22 @@ const works = () => {
         >
           <SwiperSlide
             className={styles.slideInner}
-            onClick={() => handleSlideClick("three")}
-          >
-            <Three />
-          </SwiperSlide>
-          <SwiperSlide
-            className={styles.slideInner}
             onClick={() => handleSlideClick("hitokan")}
           >
             <Hitokan />
           </SwiperSlide>
           <SwiperSlide
             className={styles.slideInner}
+            onClick={() => handleSlideClick("three")}
+          >
+            <Three />
+          </SwiperSlide>
+          {/* <SwiperSlide
+            className={styles.slideInner}
             onClick={() => handleSlideClick("lp")}
           >
             <Lp />
-          </SwiperSlide>
+          </SwiperSlide> */}
           <SwiperSlide
             className={styles.slideInner}
             // onClick={() => handleSlideClick()}
