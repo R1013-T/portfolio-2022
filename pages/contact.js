@@ -95,7 +95,7 @@ const contact = () => {
       </div>
       <div className={styles.container}>
         <p className={styles.head}>Get In Touch</p>
-        <p>
+        <p className={styles.desc} >
           Thanks for coming !
           <br />I would love to hear your feedback !
         </p>
@@ -103,14 +103,14 @@ const contact = () => {
           <div className={styles.moreInfoWrap} ref={moreInfoWrapRef}>
             <input
               type="text"
-              className={styles.firstName}
+              className={`${styles.firstName} ${ first ? styles.active : ""}`}
               placeholder="First Name"
               value={first}
               onChange={(e) => setFirst(e.target.value)}
             />
             <input
               type="text"
-              className={styles.lastName}
+              className={`${styles.lastName} ${ last ? styles.active : ""}`}
               placeholder="Last Name"
               value={last}
               onChange={(e) => setLast(e.target.value)}
@@ -118,7 +118,7 @@ const contact = () => {
             <br />
             <input
               type="text"
-              className={styles.company}
+              className={`${styles.company} ${ organization ? styles.active : ""}`}
               placeholder="Organization"
               value={organization}
               onChange={(e) => setOrganization(e.target.value)}
@@ -126,14 +126,14 @@ const contact = () => {
             <br />
             <input
               type="text"
-              className={styles.email}
+              className={`${styles.email} ${ email ? styles.active : ""}`}
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
             <input
               type="text"
-              className={styles.phone}
+              className={`${styles.phone} ${ phone ? styles.active : ""}`}
               placeholder="Phone"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
@@ -142,7 +142,7 @@ const contact = () => {
           </div>
 
           <textarea
-            className={styles.textarea}
+            className={`${styles.textarea} ${ message ? styles.active : ""}`}
             placeholder="Message"
             onChange={(e) => setMessage(e.target.value)}
             value={message}

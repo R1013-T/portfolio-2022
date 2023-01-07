@@ -41,14 +41,16 @@
     font-size: 42px;
     color: #fff;
     opacity: 0.8;
+    margin-bottom: 10px;
   }
-  
-  p {
+
+  .desc {
     color: #fff;
     opacity: 0.6;
     font-size: 13px;
     letter-spacing: 2px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    line-height: 1.2;
   }
 
   .moreInfoWrap {
@@ -64,8 +66,12 @@
       outline: none;
       transition: all 0.3s;
 
-      &:hover {
+      &.active {
         background: rgba($color: #fff, $alpha: 0.7);
+      }
+
+      &:hover {
+        background: rgba($color: #fff, $alpha: 0.6);
       }
 
       &::placeholder {
@@ -74,19 +80,9 @@
       }
     }
 
-    .firstName {
-    }
-    .lastName {
-    }
-
     .company {
       width: 60vw;
       margin: 0 0 15px;
-    }
-
-    .email {
-    }
-    .phone {
     }
   }
 
@@ -100,17 +96,21 @@
     resize: none;
     margin-top: 10px;
     transition: all 0.3s;
-    
-    &:hover {
+
+    &.active {
       background: rgba($color: #fff, $alpha: 0.7);
     }
-    
+
+    &:hover {
+      background: rgba($color: #fff, $alpha: 0.6);
+    }
+
     &::placeholder {
       color: rgba($color: #fff, $alpha: 0.7);
       font-style: italic;
     }
   }
-  
+
   .buttons {
     margin-top: 10px;
     width: 60vw;
@@ -121,7 +121,7 @@
       margin-top: 2px;
       font-size: 13px;
     }
-    
+
     .send {
       margin-top: 2px;
       padding: 7px 26px;
