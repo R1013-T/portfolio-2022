@@ -17,6 +17,7 @@ const contact = () => {
   const moreButtonRef = useRef();
 
   const [isFront, setIsFront] = useState(false);
+  const [isNg, setIsNg] = useState(false)
 
   const [first, setFirst] = useState("");
   const [last, setLast] = useState("");
@@ -24,6 +25,7 @@ const contact = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const [messagePlaceholder, setMessagePlaceholder] = useState("Message")
 
   useEffect(() => {
     setupGsap();
@@ -54,24 +56,34 @@ const contact = () => {
       opacity: 0,
       duration: 0.4,
     });
+    setMessagePlaceholder("Message")
   };
 
   const handleSend = (e) => {
     e.preventDefault();
-    console.log(
-      "first: ",
-      first,
-      "\nlast: ",
-      last,
-      "\norganization: ",
-      organization,
-      "\nemail: ",
-      email,
-      "\nphone: ",
-      phone,
-      "\nmessage: ",
-      message
-    );
+    // console.log(
+    //   "first: ",
+    //   first,
+    //   "\nlast: ",
+    //   last,
+    //   "\norganization: ",
+    //   organization,
+    //   "\nemail: ",
+    //   email,
+    //   "\nphone: ",
+    //   phone,
+    //   "\nmessage: ",
+    //   message
+    // );
+
+    if (message) {
+    } else {
+      setIsNg(true)
+      setMessagePlaceholder("Please enter your message")
+      setTimeout(() => {
+        setIsNg(false)
+      }, 900);
+    }
   };
 
   return (
@@ -95,7 +107,7 @@ const contact = () => {
       </div>
       <div className={styles.container}>
         <p className={styles.head}>Get In Touch</p>
-        <p className={styles.desc} >
+        <p className={styles.desc}>
           Thanks for coming !
           <br />I would love to hear your feedback !
         </p>
@@ -103,14 +115,14 @@ const contact = () => {
           <div className={styles.moreInfoWrap} ref={moreInfoWrapRef}>
             <input
               type="text"
-              className={`${styles.firstName} ${ first ? styles.active : ""}`}
+              className={`${styles.firstName} ${first ? styles.active : ""}`}
               placeholder="First Name"
               value={first}
               onChange={(e) => setFirst(e.target.value)}
             />
             <input
               type="text"
-              className={`${styles.lastName} ${ last ? styles.active : ""}`}
+              className={`${styles.lastName} ${last ? styles.active : ""}`}
               placeholder="Last Name"
               value={last}
               onChange={(e) => setLast(e.target.value)}
@@ -118,7 +130,9 @@ const contact = () => {
             <br />
             <input
               type="text"
-              className={`${styles.company} ${ organization ? styles.active : ""}`}
+              className={`${styles.company} ${
+                organization ? styles.active : ""
+              }`}
               placeholder="Organization"
               value={organization}
               onChange={(e) => setOrganization(e.target.value)}
@@ -126,14 +140,14 @@ const contact = () => {
             <br />
             <input
               type="text"
-              className={`${styles.email} ${ email ? styles.active : ""}`}
+              className={`${styles.email} ${email ? styles.active : ""}`}
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
             <input
               type="text"
-              className={`${styles.phone} ${ phone ? styles.active : ""}`}
+              className={`${styles.phone} ${phone ? styles.active : ""}`}
               placeholder="Phone"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
@@ -142,8 +156,8 @@ const contact = () => {
           </div>
 
           <textarea
-            className={`${styles.textarea} ${ message ? styles.active : ""}`}
-            placeholder="Message"
+            className={`${styles.textarea} ${message ? styles.active : ""} ${messagePlaceholder !== "Message" ? styles.ng : ""}`}
+            placeholder={messagePlaceholder}
             onChange={(e) => setMessage(e.target.value)}
             value={message}
           ></textarea>
@@ -156,7 +170,10 @@ const contact = () => {
               <AiOutlinePlus />
               more info
             </div>
-            <button type="submit" className={styles.send}>
+            <button
+              type="submit"
+              className={`${styles.send} ${isNg ? styles.ng : ""}`}
+            >
               Send
             </button>
           </div>
