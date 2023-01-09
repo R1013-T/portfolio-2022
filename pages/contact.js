@@ -1,6 +1,7 @@
 import styles from "../styles/Contact.module.scss";
 import Section from "../components/section/Section";
 import Front from "../components/front/Front";
+import Loading from "../components/loading/Contact";
 
 import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
@@ -17,7 +18,8 @@ const contact = () => {
   const moreButtonRef = useRef();
 
   const [isFront, setIsFront] = useState(false);
-  const [isNg, setIsNg] = useState(false)
+  const [isNg, setIsNg] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [first, setFirst] = useState("");
   const [last, setLast] = useState("");
@@ -25,7 +27,11 @@ const contact = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
-  const [messagePlaceholder, setMessagePlaceholder] = useState("Message")
+  const [messagePlaceholder, setMessagePlaceholder] = useState("Message");
+
+  const [loadingMove, setLoadingMove] = useState(true);
+  const [loadingMessage, setLoadingMessage] = useState("Sending...");
+  const [loadingSecond, setLoadingSecond] = useState(7);
 
   useEffect(() => {
     setupGsap();
@@ -56,7 +62,7 @@ const contact = () => {
       opacity: 0,
       duration: 0.4,
     });
-    setMessagePlaceholder("Message")
+    setMessagePlaceholder("Message");
   };
 
   const handleSend = (e) => {
@@ -77,14 +83,34 @@ const contact = () => {
     // );
 
     if (message) {
-    } else {
-      setIsNg(true)
-      setMessagePlaceholder("Please enter your message")
+      setIsLoading(true);
+
       setTimeout(() => {
-        setIsNg(false)
+        setLoadingMessage("Compleat!");
+        setTimeout(() => {
+          setLoadingTimer();
+        }, 1000);
+      }, 1700);
+    } else {
+      setIsNg(true);
+      setMessagePlaceholder("Please enter your message");
+      setTimeout(() => {
+        setIsNg(false);
       }, 900);
     }
   };
+
+  const setLoadingTimer = () => {
+    setLoadingSecond((prevCount) => prevCount - 1);
+    setTimeout(() => {
+      setLoadingTimer();
+    }, 1100);
+  };
+
+  useEffect(() => {
+    if (loadingSecond >= 1) return;
+    router.push("/");
+  }, [loadingSecond]);
 
   return (
     <div className={styles.wrapper}>
@@ -102,6 +128,15 @@ const contact = () => {
       </Head>
       <Section name={"contact"} />
       {isFront ? <Front state="top" /> : ""}
+      {isLoading ? (
+        <Loading
+          loading={loadingMove}
+          message={loadingMessage}
+          second={loadingSecond}
+        />
+      ) : (
+        ""
+      )}
       <div className={styles.backButton} onClick={handleBack}>
         <VscArrowLeft />
       </div>
@@ -156,9 +191,14 @@ const contact = () => {
           </div>
 
           <textarea
-            className={`${styles.textarea} ${message ? styles.active : ""} ${messagePlaceholder !== "Message" ? styles.ng : ""}`}
+            className={`${styles.textarea} ${message ? styles.active : ""} ${
+              messagePlaceholder !== "Message" ? styles.ng : ""
+            }`}
             placeholder={messagePlaceholder}
-            onChange={(e) => setMessage(e.target.value)}
+            onChange={(e) => {
+              setMessage(e.target.value);
+              setMessagePlaceholder("Message");
+            }}
             value={message}
           ></textarea>
           <div className={styles.buttons}>
