@@ -103,7 +103,7 @@ const contact = () => {
           console.log(e);
         }
       } else {
-        alert("環境変数");
+        alert("環境変数ない");
       }
     } else {
       setIsNg(true);
