@@ -22,6 +22,14 @@ $red: #ff9796;
     font-style: normal;
     letter-spacing: 1px;
     font-size: 11px;
+    display: flex;
+
+    .img {
+      font-size: 15px;
+      margin-right: 10px;
+      transform: translateY(-1px);
+    }
+
     span {
       font-weight: 300;
     }
