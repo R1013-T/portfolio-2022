@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 
 import { gsap } from "gsap/dist/gsap";
+import { init, send } from "@emailjs/browser";
 import { VscArrowLeft } from "react-icons/vsc";
 import { AiOutlinePlus } from "react-icons/ai";
 
@@ -65,32 +66,45 @@ const contact = () => {
     setMessagePlaceholder("Message");
   };
 
-  const handleSend = (e) => {
+  const handleSend = async (e) => {
     e.preventDefault();
-    // console.log(
-    //   "first: ",
-    //   first,
-    //   "\nlast: ",
-    //   last,
-    //   "\norganization: ",
-    //   organization,
-    //   "\nemail: ",
-    //   email,
-    //   "\nphone: ",
-    //   phone,
-    //   "\nmessage: ",
-    //   message
-    // );
 
     if (message) {
       setIsLoading(true);
 
-      setTimeout(() => {
-        setLoadingMessage("Compleat!");
-        setTimeout(() => {
-          setLoadingTimer();
-        }, 1000);
-      }, 1700);
+      const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+      const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+      const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+
+      if (PUBLIC_KEY && SERVICE_ID && TEMPLATE_ID) {
+        init(PUBLIC_KEY);
+
+        const replayMessage = replayMessageInput()
+
+        const params = {
+          firstName: first,
+          lastName: last,
+          organization: organization,
+          email: email,
+          phone: phone,
+          message: message,
+          myEmail: process.env.NEXT_PUBLIC_MY_EMAIL_ADDRESS,
+          replayMessage: replayMessage,
+        };
+
+        try {
+          await send(SERVICE_ID, TEMPLATE_ID, params);
+          setLoadingMessage("Compleat!");
+          setTimeout(() => {
+            setLoadingTimer();
+          }, 1000);
+        } catch (e) {
+          console.log(params);
+          console.log(e);
+        }
+      } else {
+        alert("環境変数");
+      }
     } else {
       setIsNg(true);
       setMessagePlaceholder("Please enter your message");
@@ -101,11 +115,21 @@ const contact = () => {
   };
 
   const setLoadingTimer = () => {
+    if (loadingSecond === 0) return;
     setLoadingSecond((prevCount) => prevCount - 1);
     setTimeout(() => {
       setLoadingTimer();
     }, 1100);
   };
+
+  const replayMessageInput = () => {
+    let replayMessage = ""
+    if (first || last) {
+      replayMessage += "お名前" + first + " " + last + " \n様"
+    }
+
+    return replayMessage
+  }
 
   useEffect(() => {
     if (loadingSecond >= 1) return;

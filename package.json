@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.10.0",
     "chartjs-plugin-datalabels": "^2.2.0",
     "gsap": "^3.11.3",
     "next": "13.0.7",
