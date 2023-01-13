@@ -79,7 +79,7 @@ const contact = () => {
       if (PUBLIC_KEY && SERVICE_ID && TEMPLATE_ID) {
         init(PUBLIC_KEY);
 
-        const replayMessage = replayMessageInput()
+        const replayMessage = replayMessageInput();
 
         const params = {
           firstName: first,
@@ -123,13 +123,13 @@ const contact = () => {
   };
 
   const replayMessageInput = () => {
-    let replayMessage = ""
+    let replayMessage = "";
     if (first || last) {
-      replayMessage += "お名前" + first + " " + last + " \n様"
+      replayMessage += "お名前" + first + " " + last + " \n様";
     }
 
-    return replayMessage
-  }
+    return replayMessage;
+  };
 
   useEffect(() => {
     if (loadingSecond >= 1) return;
@@ -137,7 +137,7 @@ const contact = () => {
   }, [loadingSecond]);
 
   return (
-    <div className={styles.wrapper}>
+    <div className={`${styles.wrapper}`}>
       <Head>
         <title>RYUNOSUKE PORTFOLIO - CONTACT</title>
         <meta name="description" content="2023 Ryunosuke Takahashi Portfolio" />
@@ -150,7 +150,9 @@ const contact = () => {
           rel="stylesheet"
         />
       </Head>
-      <Section name={"contact"} />
+      <div className={`${styles.sectionWrap} ${isLoading ? styles.loading : ""}`}>
+        <Section name={"contact"} />
+      </div>
       {isFront ? <Front state="top" /> : ""}
       {isLoading ? (
         <Loading
@@ -164,7 +166,7 @@ const contact = () => {
       <div className={styles.backButton} onClick={handleBack}>
         <VscArrowLeft />
       </div>
-      <div className={styles.container}>
+      <div className={`${styles.container} ${isLoading ? styles.loading : ""}`}>
         <p className={styles.head}>Get In Touch</p>
         <p className={styles.desc}>
           Thanks for coming !
