@@ -38,16 +38,16 @@ const Section = (props) => {
   }, []);
 
   const setupGsap = () => {
-    gsap.fromTo(
-      titleRef.current,
-      {
-        x: "-100%",
-      },
-      {
-        x: 0,
-        duration: 0.6,
-      }
-    );
+    // gsap.fromTo(
+    //   titleRef.current,
+    //   {
+    //     x: "-100%",
+    //   },
+    //   {
+    //     x: 0,
+    //     duration: 0.6,
+    //   }
+    // );
   };
 
   const changeMenuState = (state) => {
