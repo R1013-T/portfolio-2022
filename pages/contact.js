@@ -150,7 +150,7 @@ const contact = () => {
           rel="stylesheet"
         />
       </Head>
-      <div className={`${styles.sectionWrap} ${isLoading ? styles.loading : ""}`}>
+      <div className={`${styles.sectionWrap}`}>
         <Section name={"contact"} />
       </div>
       {isFront ? <Front state="top" /> : ""}
@@ -166,7 +166,7 @@ const contact = () => {
       <div className={styles.backButton} onClick={handleBack}>
         <VscArrowLeft />
       </div>
-      <div className={`${styles.container} ${isLoading ? styles.loading : ""}`}>
+      <div className={`${styles.container}`}>
         <p className={styles.head}>Get In Touch</p>
         <p className={styles.desc}>
           Thanks for coming !
