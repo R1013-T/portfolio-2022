@@ -112,7 +112,7 @@ const works = () => {
           <Work
             name={"mystudy"}
             title={"My Study"}
-            use={"Swift"}
+            use={"Swift/Firebase"}
             state={"Done"}
             desc={"勉強補佐アプリ。"}
           />
