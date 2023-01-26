@@ -2,13 +2,9 @@ import styles from "../styles/Works.module.scss";
 import Front from "../components/front/Front";
 import Section from "../components/section/Section";
 import Scroll from "../components/scroll/Scroll";
-import List from "../components/works/lp/List"
+import List from "../components/works/lp/List";
 
-import Three from "../components/works/three/Three";
-import Hitokan from "../components/works/hitokan/Hitokan";
-import Lp from "../components/works/lp/Lp";
-import Typing from "../components/works/typing/Typing";
-import MyStudy from "../components/works/myStudy/MyStudy";
+import Work from "../components/works/Work";
 
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -17,21 +13,13 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper";
-import "swiper/css/bundle";
-
-import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import { VscArrowLeft } from "react-icons/vsc";
-
-SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 const works = () => {
   const router = useRouter();
 
   const scrollBarRef = useRef(null);
 
-  const [isLpList, setIsLpList] = useState(false)
   const [isFront, setIsFront] = useState(false);
 
   useEffect(() => {
@@ -53,10 +41,6 @@ const works = () => {
     });
   };
 
-  const changeIsLpList = (state) => {
-    setIsLpList(state)
-  }
-
   const handleBack = () => {
     const query = {
       section: "works",
@@ -65,20 +49,6 @@ const works = () => {
     setTimeout(() => {
       router.push({ pathname: "/", query: query }, "/");
     }, 1000);
-  };
-
-  const handleSlideClick = (slide) => {
-    switch (slide) {
-      case "three" :
-        router.push('https://three-bice.vercel.app/')
-        break
-      case "hitokan" :
-        router.push('https://hitokan.vercel.app/')
-        break
-      case "lp" :
-        setIsLpList(true)
-        break
-    }
   };
 
   return (
@@ -101,9 +71,7 @@ const works = () => {
           rel="stylesheet"
         />
       </Head>
-      <Section name={"works"} />
-      {isLpList ? <List changeIsLpList={changeIsLpList} /> : ""}
-      {isFront ? <Front state="top" /> : ""}
+      <Section name={"works"} />\ {isFront ? <Front state="top" /> : ""}
       <div className={styles.backButton} onClick={handleBack}>
         <VscArrowLeft />
       </div>
@@ -111,72 +79,44 @@ const works = () => {
         <Scroll />
       </div>
       <main>
-        <Swiper
-          slidesPerView={1}
-          loop={true}
-          speed={1000}
-          autoplay={{
-            delay: 4000,
-            disableOnInteraction: false,
-          }}
-          navigation={{
-            prevEl: "#button_prev",
-            nextEl: "#button_next",
-          }}
-          pagination={{
-            el: "#pagination",
-          }}
-          modules={[Autoplay, Pagination, Navigation]}
-          className={styles.slider}
-        >
-          <SwiperSlide
-            className={styles.slideInner}
-            onClick={() => handleSlideClick("hitokan")}
-          >
-            <Hitokan />
-          </SwiperSlide>
-          <SwiperSlide
-            className={styles.slideInner}
-            onClick={() => handleSlideClick("three")}
-          >
-            <Three />
-          </SwiperSlide>
-          {/* <SwiperSlide
-            className={styles.slideInner}
-            onClick={() => handleSlideClick("lp")}
-          >
-            <Lp />
-          </SwiperSlide> */}
-          <SwiperSlide
-            className={styles.slideInner}
-            // onClick={() => handleSlideClick()}
-          >
-            <Typing />
-          </SwiperSlide>
-          <SwiperSlide
-            className={styles.slideInner}
-            // onClick={() => handleSlideClick()}
-          >
-            <MyStudy />
-          </SwiperSlide>
-        </Swiper>
-        <div
-          id="button_prev"
-          className={`${styles.button_prev} ${styles.slideButton}`}
-        >
-          <SlArrowLeft />
+        <div className={styles.container}>
+          <Work
+            name={"hitokan"}
+            title={"ヒトカン"}
+            use={"Next.js/TypeScript"}
+            state={"Done"}
+            desc={"社会に出て拡大した人間関係を管理するWebアプリ。"}
+            
+          />
+          <Work
+            name={"three"}
+            title={"THREE"}
+            use={"Next.js/TypeScript/AR.js"}
+            state={"In progress"}
+            desc={"スマホで参加できるWebARを使用した脱出ゲーム。"}
+          />
+          <Work
+            name={"lp"}
+            title={"LP制作"}
+            use={"HTML/CSS"}
+            state={"Done"}
+            desc={"様々な形式のLPを制作。"}
+          />
+          <Work
+            name={"typing"}
+            title={"Typing Contest"}
+            use={"Rudy on Rails/Vue.js"}
+            state={"Done"}
+            desc={"2022学園際でタイピング大会を開催。"}
+          />
+          <Work
+            name={"mystudy"}
+            title={"My Study"}
+            use={"Swift"}
+            state={"Done"}
+            desc={"勉強補佐アプリ。"}
+          />
         </div>
-        <div
-          id="button_next"
-          className={`${styles.button_next} ${styles.slideButton}`}
-        >
-          <SlArrowRight />
-        </div>
-
-        <div
-          id="pagination"
-          className={`${styles.pagination} swiper-pagination`}
-        ></div>
       </main>
     </div>
   );
