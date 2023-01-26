@@ -82,13 +82,17 @@ $red: #ff9796;
             background: #a4ec6a;
           }
 
+          &.inprogress {
+            background: #85ceeb;
+          }
+
           opacity: 0.8;
           width: 13px;
           height: 13px;
           border-radius: 50%;
-          background: #85ceeb;
           display: block;
           margin: 0 4px 0 0;
+          background: #ff9796;
         }
       }
 

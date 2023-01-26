@@ -116,6 +116,13 @@ const works = () => {
             state={"Done"}
             desc={"勉強補佐アプリ。"}
           />
+          <Work
+            name={"comingsoon"}
+            title={"Coming Soon"}
+            use={"Next.js/TypeScript/Flutter"}
+            state={"Not started"}
+            desc={"Next.js, TypeScript, Flutter を勉強していきたい。"}
+          />
         </div>
       </main>
     </div>

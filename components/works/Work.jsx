@@ -39,9 +39,7 @@ const Work = (props) => {
           <p className={styles.use}>{props.use}</p>
           <p className={styles.state}>
             <span
-              className={`${
-                props.state === "Done" ? styles.done : styles.inprogress
-              } `}
+              className={`${props.state === "Done" ? styles.done : ""} ${props.state === "In progress" ? styles.inprogress : ""}`}
             ></span>
             {props.state}
           </p>
