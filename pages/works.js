@@ -2,9 +2,9 @@ import styles from "../styles/Works.module.scss";
 import Front from "../components/front/Front";
 import Section from "../components/section/Section";
 import Scroll from "../components/scroll/Scroll";
-import List from "../components/works/lp/List";
 
 import Work from "../components/works/Work";
+import Panel from "../components/works/Panel";
 
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -21,6 +21,8 @@ const works = () => {
   const scrollBarRef = useRef(null);
 
   const [isFront, setIsFront] = useState(false);
+  const [isPanel, setIsPanel] = useState(false);
+  const [panelName, setPanelName] = useState("");
 
   useEffect(() => {
     setupGsap();
@@ -51,6 +53,11 @@ const works = () => {
     }, 1000);
   };
 
+  const changePanelState = (state, name) => {
+    setIsPanel(state);
+    setPanelName(name);
+  };
+
   return (
     <div className={styles.wrapper}>
       <Head>
@@ -71,13 +78,18 @@ const works = () => {
           rel="stylesheet"
         />
       </Head>
-      <Section name={"works"} />\ {isFront ? <Front state="top" /> : ""}
+      <Section name={"works"} /> {isFront ? <Front state="top" /> : ""}
       <div className={styles.backButton} onClick={handleBack}>
         <VscArrowLeft />
       </div>
       <div className={styles.scrollbar} ref={scrollBarRef}>
         <Scroll />
       </div>
+      {isPanel ? (
+        <Panel name={panelName} changePanelState={changePanelState} />
+      ) : (
+        ""
+      )}
       <main>
         <div className={styles.container}>
           <Work
@@ -86,7 +98,7 @@ const works = () => {
             use={"Next.js/TypeScript"}
             state={"Done"}
             desc={"社会に出て拡大した人間関係を管理するWebアプリ。"}
-            
+            changePanelState={changePanelState}
           />
           <Work
             name={"three"}
@@ -94,6 +106,7 @@ const works = () => {
             use={"Next.js/TypeScript/AR.js"}
             state={"In progress"}
             desc={"スマホで参加できるWebARを使用した脱出ゲーム。"}
+            changePanelState={changePanelState}
           />
           <Work
             name={"lp"}
@@ -101,6 +114,7 @@ const works = () => {
             use={"HTML/CSS"}
             state={"Done"}
             desc={"様々な形式のLPを制作。"}
+            changePanelState={changePanelState}
           />
           <Work
             name={"typing"}
@@ -108,6 +122,7 @@ const works = () => {
             use={"Rudy on Rails/Vue.js"}
             state={"Done"}
             desc={"2022学園際でタイピング大会を開催。"}
+            changePanelState={changePanelState}
           />
           <Work
             name={"mystudy"}
@@ -115,6 +130,7 @@ const works = () => {
             use={"Swift/Firebase"}
             state={"Done"}
             desc={"勉強補佐アプリ。"}
+            changePanelState={changePanelState}
           />
           <Work
             name={"comingsoon"}
@@ -122,6 +138,7 @@ const works = () => {
             use={"Next.js/TypeScript/Flutter"}
             state={"Not started"}
             desc={"Next.js, TypeScript, Flutter を勉強していきたい。"}
+            changePanelState={changePanelState}
           />
         </div>
       </main>

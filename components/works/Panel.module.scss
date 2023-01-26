@@ -1,0 +1,60 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba($color: #000, $alpha: 0.7);
+  backdrop-filter: blur(0.7px);
+  z-index: 30;
+  animation: show .5s forwards;
+  
+  &.close {
+    animation: close .5s forwards;
+  }
+
+  display: flex;
+  flex-wrap: wrap;
+
+  .topSpace {
+    width: calc(100vw - 6px);
+    height: 20vh;
+  }
+  .leftSpace {
+    width: calc(10vw - 3px);
+    height: 60vh;
+  }
+  .inner {
+    width: 80vw;
+  }
+  .rightSpace {
+    width: calc(10vw - 3px);
+    height: 60vh;
+  }
+  .bottomSpace {
+    width: calc(100vw - 6px);
+    height: 20vh;
+  }
+}
+
+.inner {
+  opacity: 0.85;
+  background: #eee;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes close {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

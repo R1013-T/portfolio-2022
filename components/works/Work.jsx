@@ -27,27 +27,7 @@ const Work = (props) => {
   };
 
   const handleClick = () => {
-    switch (props.name) {
-      case "hitokan":
-        alert("ヒトカン");
-        break;
-      case "three":
-        alert("THREE");
-        break;
-      case "lp":
-        alert("LP制作");
-        break;
-      case "typing":
-        alert("タイピング大会");
-        break;
-      case "mystudy":
-        alert("MyStudy");
-        break;
-      case "comingsoon":
-        alert("Coming Soon");
-        break;
-    }
-    console.log(props.name);
+    props.changePanelState(true, props.name);
   };
 
   return (
