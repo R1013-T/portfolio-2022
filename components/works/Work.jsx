@@ -27,6 +27,26 @@ const Work = (props) => {
   };
 
   const handleClick = () => {
+    switch (props.name) {
+      case "hitokan":
+        alert("ヒトカン");
+        break;
+      case "three":
+        alert("THREE");
+        break;
+      case "lp":
+        alert("LP制作");
+        break;
+      case "typing":
+        alert("タイピング大会");
+        break;
+      case "mystudy":
+        alert("MyStudy");
+        break;
+      case "comingsoon":
+        alert("Coming Soon");
+        break;
+    }
     console.log(props.name);
   };
 
@@ -39,7 +59,9 @@ const Work = (props) => {
           <p className={styles.use}>{props.use}</p>
           <p className={styles.state}>
             <span
-              className={`${props.state === "Done" ? styles.done : ""} ${props.state === "In progress" ? styles.inprogress : ""}`}
+              className={`${props.state === "Done" ? styles.done : ""} ${
+                props.state === "In progress" ? styles.inprogress : ""
+              }`}
             ></span>
             {props.state}
           </p>
