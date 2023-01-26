@@ -18,22 +18,23 @@
 
   .topSpace {
     width: calc(100vw - 6px);
-    height: 20vh;
+    height: 15vh;
   }
   .leftSpace {
-    width: calc(10vw - 3px);
-    height: 60vh;
+    width: calc(15vw - 3px);
+    height: 70vh;
   }
   .inner {
-    width: 80vw;
+    width: 70vw;
+    height: 70vh;
   }
   .rightSpace {
-    width: calc(10vw - 3px);
-    height: 60vh;
+    width: calc(15vw - 3px);
+    height: 70vh;
   }
   .bottomSpace {
     width: calc(100vw - 6px);
-    height: 20vh;
+    height: 15vh;
   }
 }
 
