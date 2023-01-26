@@ -7,15 +7,19 @@
   background: rgba($color: #000, $alpha: 0.7);
   backdrop-filter: blur(0.7px);
   z-index: 30;
-  animation: show .5s forwards;
+  animation: show 0.5s forwards;
   
   &.close {
-    animation: close .5s forwards;
+    animation: close 0.5s forwards;
+    
+    .inner {
+      animation: down 0.5s forwards;
+    }
   }
-
+  
   display: flex;
   flex-wrap: wrap;
-
+  
   .topSpace {
     width: calc(100vw - 6px);
     height: 15vh;
@@ -27,6 +31,7 @@
   .inner {
     width: 70vw;
     height: 70vh;
+    animation: up 0.5s forwards;
   }
   .rightSpace {
     width: calc(15vw - 3px);
@@ -57,5 +62,22 @@
   }
   100% {
     opacity: 0;
+  }
+}
+
+@keyframes up {
+  0% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes down {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateY(20px);
   }
 }
