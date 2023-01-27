@@ -38,7 +38,7 @@ const Other = (props) => {
       case "mystudy":
         setPanelData({
           title: "My Study",
-          use: "Swift",
+          use: "Swift/Firebase",
           state: "Done",
           desc: "勉強補佐アプリ。高校３年生の頃 作成。\n勉強時間を計るタイマー機能や、カレンダー機能、単語帳機能 を作成。\n全商プログラミングコンテストに出展し奨励賞を頂く。",
         });
