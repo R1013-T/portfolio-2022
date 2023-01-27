@@ -27,6 +27,7 @@ const Work = (props) => {
   };
 
   const handleClick = () => {
+    if ((props.name === "comingsoon")) return;
     props.changePanelState(true, props.name);
   };
 

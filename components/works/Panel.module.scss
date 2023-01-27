@@ -6,7 +6,7 @@
   height: 100vh;
   background: rgba($color: #000, $alpha: 0.7);
   backdrop-filter: blur(0.7px);
-  z-index: 30;
+  z-index: 50;
   animation: show 0.5s forwards;
   
   &.close {
