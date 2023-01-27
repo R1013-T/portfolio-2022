@@ -24,7 +24,7 @@ const Other = (props) => {
           title: "THREE",
           use: "Next.js/TypeScript/Ar.js",
           state: "In progress",
-          desc: "スマホで参加できるWebARを使用した脱出ゲーム。\nまだ作成中。",
+          desc: "スマホで参加できるWebARを使用した脱出ゲーム。\nまだ作成中。\n完成したら、学園祭等で皆さんに参加して頂きたい\nと考えていますが、ARの表示がNext.jsでうまく動作せず、苦戦中",
         });
         break;
       case "typing":
@@ -47,7 +47,14 @@ const Other = (props) => {
   }, []);
 
   const handleClick = () => {
-    alert(props.name);
+    switch (props.name) {
+      case "hitokan":
+        break;
+      case "three":
+        break;
+      default:
+        props.handleClose();
+    }
   };
 
   return (

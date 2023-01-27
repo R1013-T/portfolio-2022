@@ -22,7 +22,7 @@ const Panel = (props) => {
       <div className={styles.topSpace} onClick={handleClose}></div>
       <div className={styles.leftSpace} onClick={handleClose}></div>
       <div className={styles.inner}>
-        {props.name !== "lp" ? <Other name={props.name} /> : <Lp />}
+        {props.name !== "lp" ? <Other name={props.name} handleClose={handleClose} /> : <Lp />}
       </div>
       <div className={styles.rightSpace} onClick={handleClose}></div>
       <div className={styles.bottomSpace} onClick={handleClose}></div>
