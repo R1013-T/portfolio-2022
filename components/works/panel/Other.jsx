@@ -24,7 +24,7 @@ const Other = (props) => {
           title: "THREE",
           use: "Next.js/TypeScript/Ar.js",
           state: "In progress",
-          desc: "スマホで参加できるWebARを使用した脱出ゲーム。\nまだ作成中。\n完成したら、学園祭等で皆さんに参加して頂きたい\nと考えていますが、ARの表示がNext.jsでうまく動作せず、苦戦中",
+          desc: "collaborator: Kanai Yukiha(AR)\n\nスマホで参加できるWebARを使用した脱出ゲーム。\nまだ作成中。\n完成したら、学園祭等で皆さんに参加して頂きたい\nと考えていますが、ARの表示がNext.jsでうまく動作せず、苦戦中、、",
         });
         break;
       case "typing":
