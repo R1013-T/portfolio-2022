@@ -6,7 +6,7 @@
   height: 100vh;
   background: rgba($color: #000, $alpha: 0.7);
   backdrop-filter: blur(0.7px);
-  z-index: 50;
+  z-index: 60;
   animation: show 0.5s forwards;
   
   &.close {
@@ -32,6 +32,7 @@
     width: 70vw;
     height: 70vh;
     animation: up 0.5s forwards;
+    overflow: hidden;
   }
   .rightSpace {
     width: calc(15vw - 3px);

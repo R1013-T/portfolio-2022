@@ -49,8 +49,10 @@ const Other = (props) => {
   const handleClick = () => {
     switch (props.name) {
       case "hitokan":
+        window.open ('https://hitokan.vercel.app', '_ blank'); 
         break;
-      case "three":
+        case "three":
+        window.open ('https://three-bice.vercel.app', '_ blank'); 
         break;
       default:
         props.handleClose();
@@ -59,7 +61,12 @@ const Other = (props) => {
 
   return (
     <div className={styles.container} onClick={handleClick}>
-      <div className={styles.imageWrap}></div>
+      <div className={styles.backImageWrap}>
+        <img src={`./images/works/panel/${props.name}-back.jpg`} className={styles.backImage} />
+      </div>
+      <div className={styles.frontImageWrap}>
+        <img src={`./images/works/panel/${props.name}-front.jpg`} className={styles.frontImage} />
+      </div>
       <div className={styles.texts}>
         <p className={styles.title}>{panelData.title}</p>
         <p className={styles.use}>{panelData.use}</p>
