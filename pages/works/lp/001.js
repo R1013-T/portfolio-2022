@@ -1,7 +1,7 @@
 const lp_001 = () => {
   return (
     <div>
-      Enter
+      lp_001
     </div>
   );
 }

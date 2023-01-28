@@ -20,7 +20,7 @@ const Lp = () => {
           src="./images/works/lp/aqua.png"
           className={styles.image}
           onClick={() => window.open(
-            "https://portfolio-r1013-t.vercel.app/works",
+            "https://portfolio-r1013-t.vercel.app/works/lp/001",
             "_ blank"
           )}
         />
