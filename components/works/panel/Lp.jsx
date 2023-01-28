@@ -20,49 +20,73 @@ const Lp = () => {
           src="./images/works/lp/aqua.png"
           className={styles.image}
           onClick={() => window.open(
-            "https://portfolio-r1013-t.vercel.app/works/lp/001",
+            "https://gilded-clafoutis-eca428.netlify.app/001",
             "_ blank"
           )}
         />
         <img
           src="./images/works/lp/book.png"
           className={styles.image}
-          onClick={() => handleClick("002")}
+          onClick={() => window.open(
+            "https://gilded-clafoutis-eca428.netlify.app/002",
+            "_ blank"
+          )}
         />
         <img
           src="./images/works/lp/green.png"
           className={styles.image}
-          onClick={() => handleClick("003")}
+          onClick={() => window.open(
+            "https://gilded-clafoutis-eca428.netlify.app/003",
+            "_ blank"
+          )}
         />
         <img
           src="./images/works/lp/bread.png"
           className={styles.image}
-          onClick={() => handleClick("004")}
+          onClick={() => window.open(
+            "https://gilded-clafoutis-eca428.netlify.app/004",
+            "_ blank"
+          )}
         />
         <img
           src="./images/works/lp/corporate.png"
           className={styles.image}
-          onClick={() => handleClick("005")}
+          onClick={() => window.open(
+            "https://gilded-clafoutis-eca428.netlify.app/005",
+            "_ blank"
+          )}
         />
         <img
           src="./images/works/lp/fixed.png"
           className={styles.image}
-          onClick={() => handleClick("006")}
+          onClick={() => window.open(
+            "https://gilded-clafoutis-eca428.netlify.app/006",
+            "_ blank"
+          )}
         />
         <img
           src="./images/works/lp/tea.png"
           className={styles.image}
-          onClick={() => handleClick("007")}
+          onClick={() => window.open(
+            "https://gilded-clafoutis-eca428.netlify.app/007",
+            "_ blank"
+          )}
         />
         <img
           src="./images/works/lp/blue.png"
           className={styles.image}
-          onClick={() => handleClick("008")}
+          onClick={() => window.open(
+            "https://gilded-clafoutis-eca428.netlify.app/008",
+            "_ blank"
+          )}
         />
         <img
           src="./images/works/lp/train.png"
           className={styles.image}
-          onClick={() => handleClick("009")}
+          onClick={() => window.open(
+            "https://gilded-clafoutis-eca428.netlify.app/009",
+            "_ blank"
+          )}
         />
       </div>
     </div>
