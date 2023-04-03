@@ -49,7 +49,7 @@ const Other = (props) => {
   const handleClick = () => {
     switch (props.name) {
       case "hitokan":
-        window.open ('hitokan-app.tokyo/', '_ blank'); 
+        window.open ('https://hitokan-app.tokyo/', '_ blank'); 
         break;
         case "three":
         window.open ('https://three-bice.vercel.app', '_ blank'); 
