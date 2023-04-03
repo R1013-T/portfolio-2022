@@ -45,11 +45,11 @@ const Other = (props) => {
         break;
     }
   }, []);
-
+  
   const handleClick = () => {
     switch (props.name) {
       case "hitokan":
-        window.open ('https://hitokan.vercel.app', '_ blank'); 
+        window.open ('hitokan-app.tokyo/', '_ blank'); 
         break;
         case "three":
         window.open ('https://three-bice.vercel.app', '_ blank'); 
